@@ -1,1 +1,1 @@
-from brokMax import BrokMac
+from brokMac import BrokMac

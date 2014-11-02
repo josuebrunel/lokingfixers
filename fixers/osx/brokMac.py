@@ -1,11 +1,10 @@
 import os
-improt xattr
-
+import xattr
+import pdb
 from fixers import Fixer
-from tools import FLogger
 from cfg import ATTRIBUT_KEY
 
-class BrokMac():
+class BrokMac(Fixer):
     """This module fixes issue related to OSX files with
     the extended attribut 'Brok'. This issue often raise an error
     'item is used by OSX'
@@ -15,17 +14,25 @@ class BrokMac():
 
         self.folder = folder
 
-        self.nbr_brokMac = 0
+        self.nbr = 0
+        self.lst = []
  
     def list_brok_file(self,):
         """Returns list of 
         """
-        brok_list = []
         
         for root, subdirs, files in os.walk(self.folder):
             for f in files :
-                xf = xattr.xattr(f)
-                if xf.get[ATTRIBUT_KEY] :
+                fpath = os.path.join(root, f)
+                try:
+                    xf = xattr.xattr(fpath)
+                    if xf.get(ATTRIBUT_KEY).startswith('brokMACS') :
+                        print fpath
+                        xf.remove(ATTRIBUT_KEY)
+                        self.lst.append(fpath)
+                        self.nbr_brokMac += 1
+                        self.logger.debug(fpath)
+                except:
                     pass
                 
                 
