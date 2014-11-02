@@ -1,6 +1,9 @@
 import os
 from datetime import datetime
 
+#ATTRIBUTS
+ATTRIBUT_KEY= 'com.apple.FinderInfo'
+
 #LOG SETTINGS
 LOG_FOLDER = 'logs'
 LOG_FILE_SIZE = 1 * 1024 * 1024
