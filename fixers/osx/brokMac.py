@@ -12,12 +12,13 @@ class BrokMac(Fixer):
 
     def __init__(self, folder):
 
+        super(BrokMac, self).__init__()
         self.folder = folder
 
         self.nbr = 0
         self.lst = []
  
-    def list_brok_file(self,):
+    def check_file(self, fix=False):
         """Returns list of 
         """
         
@@ -28,12 +29,14 @@ class BrokMac(Fixer):
                     xf = xattr.xattr(fpath)
                     if xf.get(ATTRIBUT_KEY).startswith('brokMACS') :
                         print fpath
-                        xf.remove(ATTRIBUT_KEY)
+                        if fix:
+                            xf.remove(ATTRIBUT_KEY)
                         self.lst.append(fpath)
                         self.nbr_brokMac += 1
                         self.logger.debug(fpath)
                 except:
                     pass
-                
-                
         
+        return self.lst
+
+
