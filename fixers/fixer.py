@@ -13,4 +13,5 @@ class Fixer(object):
         self.logger = FLogger(self.logger_name, logfilename=LOG_FILENAME)
         self.reporter = FLogger(self.logger_name, logfilename=LOG_REPORT)
         self.log_error = FLogger(self.logger_name, logfilename=LOG_ERROR)
-    
+
+   
