@@ -34,7 +34,7 @@ class BrokMac(Fixer):
                             xf.remove(ATTRIBUT_KEY)
                         self.lst.append(fpath)
                         self.nbr += 1
-                        self.logger.debug(fpath)
+                        
                 except Exception, e:
                     #self.log_error.error(e)
                     continue
