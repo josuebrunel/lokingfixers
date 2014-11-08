@@ -32,11 +32,10 @@ class BrokMac(Fixer):
                         self.logger.info(fpath)
                         if fix:
                             xf.remove(ATTRIBUT_KEY)
+                            self.nbr += 1
                         self.lst.append(fpath)
-                        self.nbr += 1
                         
                 except Exception, e:
-                    #self.log_error.error(e)
                     continue
         self.reporter.info("{0} files fixed (^_^)".format(self.nbr))
         return self.lst

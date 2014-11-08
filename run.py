@@ -17,7 +17,7 @@ class BrokMacAction(argparse.Action):
 
         if not os.path.isdir(folder):
             print("The argument isn't a valid directory")
-            return 0
+            return 1
         bkm = BrokMac(folder)
 
         bkm.check_file()
