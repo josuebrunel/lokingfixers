@@ -1,7 +1,7 @@
 import logging
 from logging import Logger, handlers
 
-from cfg import LOG_FILE_SIZE
+from settings import LOG_FILE_SIZE
 
 class FLogger(Logger):
     """Custom Logger

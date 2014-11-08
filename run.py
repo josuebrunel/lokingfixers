@@ -6,7 +6,6 @@ from fixers import BrokMac
 class BrokMacAction(argparse.Action):
 
     def __call__(self, parser, namespace, values, option_string=None):
-        print '%r %r %r' % (namespace, values, option_string)
 
         folder = values
         

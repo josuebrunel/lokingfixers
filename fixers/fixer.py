@@ -1,5 +1,5 @@
 from tools import FLogger
-from cfg import LOG_FILENAME, LOG_REPORT, LOG_ERROR
+from settings import LOG_FILENAME, LOG_REPORT, LOG_ERROR
 
 class Fixer(object):
     """
