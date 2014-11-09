@@ -23,7 +23,7 @@ class HomeConfig(Fixer):
             file_path = os.path.join(self.src, f)
             try:
                 tar.add(file_path)
-                self.logger.info("File {0} saved in archive {1}".format(f, dest))
+                self.logger.info("File {0} saved in archive {1}".format(f, self.dest))
             except Exception, e:
                 print(e)
                 self.log_error.error(e)
@@ -32,7 +32,12 @@ class HomeConfig(Fixer):
     def restore(self,):
         """Restores config files
         """
-        pass
+        with tarfile.open(self.dest, 'r:*') as tar:
+            try:
+                self.logger.info("Extraction files")
+                tar.extractall()
+            except Exception, e:
+                self.log_error.error(e)
 
     def get_archived_files(self):
         """Returns list of archived files
