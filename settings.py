@@ -16,7 +16,14 @@ LOG_ERROR = os.path.join(LOG_FOLDER, datetime.now().strftime('error-%d-%m-%Y-%H-
 HOME_CONFIG = {
     'src' : os.environ['HOME'],
     'dest' : os.path.join(os.environ['HOME'],'workspace/system/'),
-    'files' : ['.profile', '.pythonenv.py', '.emacs', '.vimrc', '.inputrc', '.gitconfig'],
+    'files' : [
+        '.profile',
+        '.pythonenv.py',
+        '.emacs',
+        '.vimrc',
+        '.inputrc',
+        '.gitconfig'
+    ],
     'archive' : 'HomeDirectoryConfig.tar.gz'
 }
 
