@@ -1,0 +1,4 @@
+cffi==0.8.6
+pycparser==2.10
+wsgiref==0.1.2
+xattr==0.7.5

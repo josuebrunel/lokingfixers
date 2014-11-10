@@ -1,8 +1,8 @@
 import os
 import tarfile
 
-from fixers import Fixer
-from settings import HOME_CONFIG
+from lokingfixers.fixers import Fixer
+from lokingfixers.settings import HOME_CONFIG
 
 class HomeConfig(Fixer):
     """Backup and restore home directory config files
@@ -18,16 +18,16 @@ class HomeConfig(Fixer):
         """Saves config files
         """
 
-        tar = tarfile.open(self.dest,'w:gz')
-        for f in HOME_CONFIG['files'] :
-            file_path = os.path.join(self.src, f)
-            try:
-                tar.add(file_path)
-                self.logger.info("File {0} saved in archive {1}".format(f, self.dest))
-            except Exception, e:
-                print(e)
-                self.log_error.error(e)
-        tar.close()
+        with tarfile.open(self.dest,'w:gz') as tar:
+            for f in HOME_CONFIG['files'] :
+                file_path = os.path.join(self.src, f)
+                try:
+                    tar.add(file_path)
+                    self.logger.info("File {0} saved in archive {1}".format(f, self.dest))
+                except Exception, e:
+                    print(e)
+                    self.log_error.error(e)
+            tar.close()
             
     def restore(self,):
         """Restores config files
@@ -39,6 +39,8 @@ class HomeConfig(Fixer):
             except Exception, e:
                 self.log_error.error(e)
 
+            tar.close()
+
     def get_archived_files(self):
         """Returns list of archived files
         """
@@ -47,5 +49,4 @@ class HomeConfig(Fixer):
                 print f
 
             return tar.getnames()
-        
         

@@ -1,7 +1,7 @@
 import os
 import xattr
-from fixers import Fixer
-from settings import ATTRIBUT_KEY
+from lokingfixers.fixers import Fixer
+from lokingfixers.settings import ATTRIBUT_KEY
 
 class BrokMac(Fixer):
     """This module fixes issue related to OSX files with

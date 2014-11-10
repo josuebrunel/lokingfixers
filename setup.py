@@ -1,5 +1,8 @@
 from setuptools import setup
 
+with open('requirements.txt') as f:
+            required = f.read().splitlines()
+
 setup(
     name='lokingFixers',
     version='0.1',
@@ -10,4 +13,5 @@ setup(
     license='MIT',
     package=['lokingFixers'],
     zip_safe=False
+    install_requires= required
 )

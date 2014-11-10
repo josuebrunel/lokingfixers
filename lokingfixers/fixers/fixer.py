@@ -1,5 +1,5 @@
-from tools import FLogger
-from settings import LOG_FILENAME, LOG_REPORT, LOG_ERROR
+from lokingfixers.tools import FLogger
+from lokingfixers.settings import LOG_FILENAME, LOG_REPORT, LOG_ERROR
 
 class Fixer(object):
     """

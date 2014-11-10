@@ -1,7 +1,7 @@
 import os
 import argparse
 
-from fixers import BrokMac
+from lokingfixers import BrokMac
 
 class BrokMacAction(argparse.Action):
 
@@ -23,6 +23,12 @@ class BrokMacAction(argparse.Action):
 
         print("{0} files fixed (^_^)".format(bkm.nbr))
 
+
+class HomeConfigAction(argparse.Action):
+
+    def __call__(self, parser, namespace, values, option_string=None):
+
+        pass
         
 if __name__ == '__main__':
 
