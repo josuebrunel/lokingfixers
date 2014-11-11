@@ -30,4 +30,11 @@ HOME_CONFIG = {
     'archive' : 'HomeDirectoryConfig.tar.gz'
 }
 
-#DATABASE 
+#DATABASE
+
+dbname = 'lokingfixers.db'
+
+DB = {
+    'default': 'sqlite:///'+os.path.realpath(dbname),
+    'test': 'sqlite:///'+os.path.realpath('test.db')
+}
