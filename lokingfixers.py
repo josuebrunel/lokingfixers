@@ -12,6 +12,7 @@ class BrokMacAction(argparse.Action):
         bkm = BrokMac(folder)
         
         if sys.platform != 'darwin':
+            bkm.log_error.info("This fixer only runs on Mac OSX")
             print("This fixer only runs on Mac OSX")
             sys.exit(1)
             
