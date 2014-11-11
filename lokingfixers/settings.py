@@ -1,6 +1,8 @@
 import os
 from datetime import datetime
 
+hooking_time = datetime.now().strftime('%d-%m-%Y-%H-%M')
+
 ##ATTRIBUTS
 ATTRIBUT_KEY= 'com.apple.FinderInfo'
 
@@ -22,7 +24,8 @@ HOME_CONFIG = {
         '.emacs',
         '.vimrc',
         '.inputrc',
-        '.gitconfig'
+        '.gitconfig',
+        '.pdbrc',
     ],
     'archive' : 'HomeDirectoryConfig.tar.gz'
 }

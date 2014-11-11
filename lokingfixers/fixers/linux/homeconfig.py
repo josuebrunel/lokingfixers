@@ -17,12 +17,13 @@ class HomeConfig(Fixer):
     def save(self,):
         """Saves config files
         """
-
+        os.chdir(self.src)
         with tarfile.open(self.dest,'w:gz') as tar:
             for f in HOME_CONFIG['files'] :
-                file_path = os.path.join(self.src, f)
+                #file_path = os.path.join(self.src, f)
                 try:
-                    tar.add(file_path)
+                    #tar.add(file_path)
+                    tar.add(f)
                     self.logger.info("File {0} saved in archive {1}".format(f, self.dest))
                 except Exception, e:
                     print(e)
