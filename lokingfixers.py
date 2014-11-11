@@ -1,4 +1,5 @@
 import os
+import sys
 import argparse
 
 from lokingfixers import BrokMac
@@ -17,12 +18,13 @@ class BrokMacAction(argparse.Action):
 
         if not os.path.isdir(folder):
             print("The argument isn't a valid directory")
-            return 1
+            sys.exit(1)
         bkm = BrokMac(folder)
 
         bkm.check_file()
 
         print("{0} files fixed (^_^)".format(bkm.nbr))
+        sys.exit(0)
 
 
 class HomeConfigAction(argparse.Action):
@@ -32,11 +34,17 @@ class HomeConfigAction(argparse.Action):
         hc = HomeConfig()
         
         if self.dest == 'restore':
+            if not os.path.isdir(values):
+                hc.log_error.info("{0} isn't  a valid directory".format(values))
+                print("{0} is not a valid directory".format(values))
+                sys.exit(1)
             hc.restore(values)
         elif self.dest == 'save':
             hc.save()
         else:
             hc.get_archived_files()
+
+        sys.exit(0)
                       
                     
 if __name__ == '__main__':
