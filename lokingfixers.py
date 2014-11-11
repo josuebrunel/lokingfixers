@@ -35,8 +35,11 @@ class HomeConfigAction(argparse.Action):
             if values:
                 files = values
             hc.restore()
-        else:
+        elif self.dest == 'save':
             hc.save()
+        else:
+            hc.get_archived_files()
+            
             
                     
 if __name__ == '__main__':
@@ -73,5 +76,14 @@ if __name__ == '__main__':
         default= True,
         help="Restore home directory config files"
     )
- 
+
+    parser.add_argument(
+        '-l',
+        '--home-config-list-files',
+        action=HomeConfigAction,
+        dest='list',
+        nargs=0,
+        default=True,
+        help="List home directory config files"
+    )
     args = vars(parser.parse_args()) 
