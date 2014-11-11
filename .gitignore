@@ -4,3 +4,7 @@
 *#*#
 *.rope*
 *.db
+.DS_Store
+build/
+dist/
+lokingFixers.egg-info/
