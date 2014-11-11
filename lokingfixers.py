@@ -9,6 +9,12 @@ class BrokMacAction(argparse.Action):
 
     def __call__(self, parser, namespace, values, option_string=None):
 
+        bkm = BrokMac(folder)
+        
+        if sys.platform != 'darwin':
+            print("This fixer only runs on Mac OSX")
+            sys.exit(1)
+            
         folder = values
 
         if not folder :
@@ -19,7 +25,6 @@ class BrokMacAction(argparse.Action):
         if not os.path.isdir(folder):
             print("The argument isn't a valid directory")
             sys.exit(1)
-        bkm = BrokMac(folder)
 
         bkm.check_file()
 
