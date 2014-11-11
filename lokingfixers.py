@@ -32,15 +32,12 @@ class HomeConfigAction(argparse.Action):
         hc = HomeConfig()
         
         if self.dest == 'restore':
-            if values:
-                files = values
-            hc.restore()
+            hc.restore(values)
         elif self.dest == 'save':
             hc.save()
         else:
             hc.get_archived_files()
-            
-            
+                      
                     
 if __name__ == '__main__':
 
@@ -74,7 +71,7 @@ if __name__ == '__main__':
         dest='restore',
         nargs= '?',
         default= True,
-        help="Restore home directory config files"
+        help="Restore home directory config files to the location provided. If no path, restore in the current directory"
     )
 
     parser.add_argument(

@@ -20,9 +20,9 @@ class HomeConfig(Fixer):
         os.chdir(self.src)
         with tarfile.open(self.dest,'w:gz') as tar:
             for f in HOME_CONFIG['files'] :
-                #file_path = os.path.join(self.src, f)
+                file_path = os.path.join(self.src, f)
                 try:
-                    #tar.add(file_path)
+                    print("Archiving {0}".format(file_path))
                     tar.add(f)
                     self.logger.info("File {0} saved in archive {1}".format(f, self.dest))
                 except Exception, e:
@@ -30,13 +30,16 @@ class HomeConfig(Fixer):
                     self.log_error.error(e)
             tar.close()
             
-    def restore(self,):
+    def restore(self, path=None):
         """Restores config files
         """
+        path = '.' if not path else path
+        
         with tarfile.open(self.dest, 'r:*') as tar:
             try:
-                self.logger.info("Extraction files")
-                tar.extractall()
+                print("Extracting files")
+                tar.extractall(path)
+                self.logger.info("Extracting files")
             except Exception, e:
                 self.log_error.error(e)
 
