@@ -11,7 +11,7 @@ setup(
     author='josue kouka',
     author_email='josuebrunel@gmail.com',
     license='MIT',
-    package=['lokingFixers'],
+    package=['lokingfixers'],
     zip_safe=False,
     install_requires= required,
     scripts=['lokingfixers.py'],

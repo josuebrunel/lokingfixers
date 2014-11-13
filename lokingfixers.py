@@ -8,15 +8,15 @@ from lokingfixers import HomeConfig
 class BrokMacAction(argparse.Action):
 
     def __call__(self, parser, namespace, values, option_string=None):
-
-        bkm = BrokMac(folder)
         
         if sys.platform != 'darwin':
-            bkm.log_error.info("This fixer only runs on Mac OSX")
+            #bkm.log_error.info("This fixer only runs on Mac OSX")
             print("This fixer only runs on Mac OSX")
             sys.exit(1)
             
         folder = values
+
+        bkm = BrokMac(folder)
 
         if not folder :
             folder = namespace.folder
