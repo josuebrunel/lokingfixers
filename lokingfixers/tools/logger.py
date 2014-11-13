@@ -3,6 +3,8 @@ from logging import Logger, handlers
 
 from lokingfixers.settings import LOG_FILE_SIZE
 
+from lokingfixers.models import LogModel, DBSession
+
 class FLogger(Logger):
     """Custom Logger
     """
@@ -23,3 +25,26 @@ class FLogger(Logger):
             file_handler.setFormatter(logging.Formatter('[%(name)s %(asctime)s %(levelname)s]: %(message)s'))
 
             self.addHandler(file_handler)
+
+class SqlAlchemyHandler(handlers):
+    """Custom handlers to allow logging to SqlAlchemy Database
+    """
+
+    def emit(self, record):
+        """
+        """
+
+        trace = None
+        exc = record.__dict__['exc_info']
+
+        if exc:
+            trace = traceback.format_exc(exc)
+
+        log = LogModel (
+            logger=record.__dict__['name'],
+            level=record.__dict__['levelname'],
+            trace=trace,
+            msg=record.__dict__['msg'],
+        )
+
+                

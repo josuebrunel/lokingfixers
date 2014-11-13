@@ -16,8 +16,14 @@ class LogModel(Base):
     trace = Column(String(64))
     message = Column(String(128))
     created_at = Column(DateTime, default=func.now())
-        
 
+    def __init__(self, logger=None, level=None, trace=None, message=None):
+
+        self.logger = logger
+        self.level = level
+        self.trace = trace
+        self.message = message
+        
     def __unicode__(self,):
         return self.__repr__()
 
