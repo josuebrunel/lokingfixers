@@ -1,9 +1,9 @@
 import logging
-from logging import Logger, handlers
+from logging import Logger, Handler, handlers
 
 from lokingfixers.settings import LOG_FILE_SIZE
 
-from lokingfixers.models import LogModel, DBSession
+from lokingfixers.models import LogModel
 
 class FLogger(Logger):
     """Custom Logger
@@ -26,10 +26,10 @@ class FLogger(Logger):
 
             self.addHandler(file_handler)
 
-class SqlAlchemyHandler(handlers):
+class SqlAlchemyHandler(logging.Handler):
     """Custom handlers to allow logging to SqlAlchemy Database
     """
-
+    
     def emit(self, record):
         """
         """
