@@ -4,6 +4,7 @@ import argparse
 
 from lokingfixers import BrokMac
 from lokingfixers import HomeConfig
+from lokingfixers.settings import HOME_CONFIG
 
 class BrokMacAction(argparse.Action):
 
@@ -41,11 +42,16 @@ class HomeConfigAction(argparse.Action):
         
         if self.dest == 'restore':
             if not os.path.isdir(values):
-                hc.log_error.info("{0} isn't  a valid directory".format(values))
+                hc.log_error.info("{0} isn't a valid directory".format(values))
                 print("{0} is not a valid directory".format(values))
                 sys.exit(1)
             hc.restore(values)
         elif self.dest == 'save':
+            values = HOME_CONFIG['dest']
+            if not os.path.isdir(values):
+                hc.log_error.info("BACKUP FOLDER : {0} isn't a valid directory".format(values))
+                print("BACKUP FOLDER : {0} is not a valid directory".format(values))
+                sys.exit(1)
             hc.save()
         else:
             hc.get_archived_files()
