@@ -50,7 +50,7 @@ class HomeConfigAction(argparse.Action):
             values = HOME_CONFIG['dest']
             if not os.path.isdir(values):
                 hc.log_error.info("BACKUP FOLDER : {0} isn't a valid directory".format(values))
-                print("BACKUP FOLDER : {0} is not a valid directory".format(values))
+                print("BACKUP FOLDER : {0} is not a valid directory. Please update your settings".format(values))
                 sys.exit(1)
             hc.save()
         else:
