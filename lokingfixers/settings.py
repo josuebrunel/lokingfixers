@@ -17,7 +17,7 @@ LOG_ERROR = os.path.join(LOG_FOLDER, datetime.now().strftime('error-%d-%m-%Y-%H-
 
 HOME_CONFIG = {
     'src' : os.environ['HOME'],
-    'dest' : os.path.join(os.environ['HOME'],'workspace/system/'),
+    'dest' : os.path.join(os.environ['HOME'],'workspace/home/'),
     'files' : [
         '.profile',
         '.pythonenv.py',

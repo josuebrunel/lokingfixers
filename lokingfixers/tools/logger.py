@@ -1,4 +1,5 @@
 import logging
+import traceback
 from logging import Logger, Handler, handlers
 
 from lokingfixers.settings import LOG_FILE_SIZE

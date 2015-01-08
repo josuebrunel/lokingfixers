@@ -1,9 +1,11 @@
-import sqlalchemy
 from sqlalchemy.sql import func
+from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, DateTime
+from sqlalchemy import create_engine
 
 Base = declarative_base()
+
 
 class LogModel(Base):
     """
@@ -23,11 +25,9 @@ class LogModel(Base):
         self.level = level
         self.trace = trace
         self.message = message
-        
+
     def __unicode__(self,):
         return self.__repr__()
 
     def __repr__(self):
         return "<Log: %s - %s>" % (self.created_at.strftime('%m/%d/%Y-%H:%M:%S'), self.msg[:50])
-
-
