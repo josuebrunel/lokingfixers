@@ -1,8 +1,15 @@
+import os
 from setuptools import setup, find_packages
+
+def build_dir_path(dirname):
+            return os.path.join(os.path.expanduser('~'),dirname)
 
 with open('requirements.txt') as f:
             required = f.read().splitlines()
 
+pkg_cfg_dir = build_dir_path('.lokingfixers')
+pkg_cfg_subdir = build_dir_path('.lokingfixers/logs')
+            
 setup(
     name='lokingFixers',
     version='0.1',
@@ -12,6 +19,11 @@ setup(
     author_email='josuebrunel@gmail.com',
     license='MIT',
     packages=find_packages(),
+    data_files = [
+       (pkg_cfg_dir, []),
+       (pkg_cfg_subdir, []),
+       (pkg_cfg_dir, ['lokingfixers/settings.py'])
+    ]
     zip_safe=False,
     install_requires=required,
     scripts=['lokingfixer.py'],
