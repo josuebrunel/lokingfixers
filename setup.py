@@ -14,5 +14,5 @@ setup(
     packages=find_packages(),
     zip_safe=False,
     install_requires=required,
-    scripts=['lokingfixers.py'],
+    scripts=['lokingfixer.py'],
 )
