@@ -1,5 +1,9 @@
+import os, imp
 from lokingfixers.tools import FLogger
-from lokingfixers.settings import LOG_FILENAME, LOG_REPORT, LOG_ERROR
+
+# Loading from source file
+settings = imp.load_source('', os.path.join(os.path.expanduser('~'), '.lokingfixers/settings.py'))
+LOG_FILENAME, LOG_REPORT, LOG_ERROR = settings.LOG_FILENAME, settings.LOG_REPORT, settings.LOG_ERROR
 
 class Fixer(object):
     """
