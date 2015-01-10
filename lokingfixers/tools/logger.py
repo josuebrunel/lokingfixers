@@ -1,9 +1,10 @@
+import imp, os
 import logging
 import traceback
 from logging import Logger, Handler, handlers
 
 #Loading from source file
-import imp, os
+
 settings = imp.load_source('', os.path.join(os.path.expanduser('~'), '.lokingfixers/settings.py'))
 LOG_FILE_SIZE = settings.LOG_FILE_SIZE
 

@@ -1,8 +1,11 @@
-import os
+import os, imp
 import tarfile
 
 from lokingfixers.fixers import Fixer
-from lokingfixers.settings import HOME_CONFIG
+
+settings = imp.load_source('', os.path.join(os.path.expanduser('~'), '.lokingfixers/settings.py'))
+HOME_CONFIG = settings.HOME_CONFIG
+
 
 class HomeConfig(Fixer):
     """Backup and restore home directory config files
