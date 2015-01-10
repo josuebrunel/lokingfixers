@@ -19,6 +19,27 @@ A couple of my fixers in a python tool
 (test)josue@LokingMac:/private/tmp/lokingFixers-0.1$
 ```
 
+## Help
+
+```shell
+(test)josue@LokingMac:~$lokingfixer.py -h
+usage: OS (Linux/OSX)) trouble fixers [-h] [-b FOLDER] [-s] [-r [RESTORE]]
+                                      [-l]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -b FOLDER, --fix-brokmac FOLDER
+                        Fix OSX issues 'item is used by OSX'
+  -s, --home-config-save
+                        Backup home directory config files
+  -r [RESTORE], --home-config-restore [RESTORE]
+                        Restore home directory config files to the location
+                        provided. If no path, restore in the current directory
+  -l, --home-config-list-files
+                        List home directory config files
+(test)josue@LokingMac:~$
+```
+
 ##Settings
 
 You can find and edit settings in ***~/.lokingfixers/settings.py***
