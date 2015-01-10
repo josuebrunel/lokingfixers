@@ -2,9 +2,12 @@
 
 A couple of my fixers in a python tool
 
-#Version 0.1
+##Version 0.1
 
-#Features
+##Features
+
+* Saves home config files
+* (OSX) fixes *Item is used by OSX* issue on NTFS devices
 
 #How To
 
