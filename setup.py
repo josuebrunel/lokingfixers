@@ -19,11 +19,13 @@ setup(
     author_email='josuebrunel@gmail.com',
     license='MIT',
     packages=find_packages(),
+    #package_date={'': ['requirements.txt']},
+    include_package_data=True,
     data_files = [
        (pkg_cfg_dir, []),
        (pkg_cfg_subdir, []),
        (pkg_cfg_dir, ['lokingfixers/settings.py'])
-    ]
+    ],
     zip_safe=False,
     install_requires=required,
     scripts=['lokingfixer.py'],
