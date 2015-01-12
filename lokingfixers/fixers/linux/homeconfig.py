@@ -15,7 +15,7 @@ class HomeConfig(Fixer):
 
         super(HomeConfig, self).__init__(__name__)
         self.src = HOME_CONFIG['src']
-        self.dest = os.path.join(HOME_CONFIG['dest'],HOME_CONFIG['archive']) 
+        self.dest = os.path.join(HOME_CONFIG['dest'],HOME_CONFIG['archive'])
 
     def save(self,):
         """Saves config files

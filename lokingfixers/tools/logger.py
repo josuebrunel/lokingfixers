@@ -5,8 +5,9 @@ from logging import Logger, Handler, handlers
 
 #Loading from source file
 
-settings = imp.load_source('', os.path.join(os.path.expanduser('~'), '.lokingfixers/settings.py'))
-LOG_FILE_SIZE = settings.LOG_FILE_SIZE
+settings = imp.load_source('settings', os.path.join(os.path.expanduser('~'), '.lokingfixers/settings.py'))
+# LOG_FILE_SIZE = settings.LOG_FILE_SIZE
+from settings import LOG_FILE_SIZE
 
 from lokingfixers.models import LogModel
 
@@ -34,7 +35,7 @@ class FLogger(Logger):
 class SqlAlchemyHandler(logging.Handler):
     """Custom handlers to allow logging to SqlAlchemy Database
     """
-    
+
     def emit(self, record):
         """
         """
@@ -51,5 +52,3 @@ class SqlAlchemyHandler(logging.Handler):
             trace=trace,
             msg=record.__dict__['msg'],
         )
-
-                
